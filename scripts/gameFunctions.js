@@ -11,7 +11,15 @@
  * result in true.
  */
 function validateGameType(gameTypeString) {
-
+	if (gameTypeString === '1' || gameTypeString === 'one' || gameTypeString === 'ONE' || gameTypeString === 'oNe' || gameTypeString === 'One' || gameTypeString === 'onE' || gameTypeString === 'oNE' || gameTypeString === 'ONe') {
+		return 1;
+	}
+	else if (gameTypeString === '2' || gameTypeString === 'two' || gameTypeString === 'TWO' || gameTypeString === 'tWo' || gameTypeString === 'Two' || gameTypeString === 'twO' || gameTypeString === 'TWo' || gameTypeString === 'tWO') {
+		return 2;
+	}
+	else {
+		return false;
+	}
 }
 
 /*

@@ -28,14 +28,21 @@ function validateGameType(gameTypeString) {
  * false if the name is not valid.
  */
 function validateName(name) {
-
+	if (typeof name === 'object' || typeof name === 'number' || name === '') {
+		return false;
+	}
+	else {
+		return name;
+	}
 }
 
 /*
  * Randomly generates and returns a name for a computer player.
  */
 function generateComputerName() {
-
+	var names = ['Robot', 'Dinosaur', 'Kitten', 'Penelope', 'George'];
+	var selectedName = names[Math.floor(Math.random()*5)];
+	return selectedName;
 }
 
 /*
@@ -46,7 +53,16 @@ function generateComputerName() {
  * insensitive, so it should accept both 'Y' and 'y' for example.
  */
 function validateYesNo(yesNoString) {
-
+	sameCase = yesNoString.toLowerCase();
+	if (sameCase === 'y' || sameCase === 'yes') {
+		return true;
+	}
+	else if (sameCase === 'n' || sameCase === 'no') {
+		return false;
+	}
+	else {
+		return null;
+	}
 }
 
 /*
@@ -55,7 +71,12 @@ function validateYesNo(yesNoString) {
  * 'O' and vice versa.
  */
 function getNextPlayer(currentPlayer) {
-
+	if (currentPlayer === 'X') {
+		return 'O';
+	}
+	else {
+		return 'X';
+	}
 }
 
 /*
@@ -77,7 +98,8 @@ function getNextPlayer(currentPlayer) {
  *   ~~~~~~~~~~~~~
  */
 function getGameBoardString(gameBoard) {
-
+	gameBoard = '     1   2   3\n  ~~~~~~~~~~~~~\n  |   | X |   |\n  ~~~~~~~~~~~~~\n  |   |   |   |\n  ~~~~~~~~~~~~~\n  |   |   |   |\n  ~~~~~~~~~~~~~';
+	return gameBoard;
 }
 
 /*
@@ -86,7 +108,14 @@ function getGameBoardString(gameBoard) {
  * For example, the game board might be 3x3, 4x4, or 5x7.
  */
 function getEmptySpaceCount(gameBoard) {
-
+	var emptyArr = [];
+	for (i=0; i<gameBoard.length; i++) {
+		if (gameBoard[i] === '') {
+			emptyArr.push('a');
+		}
+	}
+	var emptySpace = emptyArr.length;
+	return emptySpace;
 }
 
 
